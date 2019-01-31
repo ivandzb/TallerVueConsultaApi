@@ -10,23 +10,22 @@ import axios from "axios";
 
 export default {
   name: "App",
-  data: function(){
+  data: function() {
     return {
-      characters []
+      characters: []
     };
-
   },
   methods: {
     fetch() {
       let result = axios
-      .get("https://rickandmortyapi.com/api/character")
-      .then(res => {
-        this.characters = res.data.result;
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        .get("https://rickandmortyapi.com/api/character")
+        .then(res => {
+          this.characters = res.data.result;
+          console.log(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
