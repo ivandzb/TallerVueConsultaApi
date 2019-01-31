@@ -2,6 +2,9 @@
   <div id="app">
     <h1 class="title">Consultar datos</h1>
     <button v-on:click="fetch">Consultar</button>
+    <div v-for="character of characters" v-bind:key="character.id">
+      {{ character }}
+    </div>
   </div>
 </template>
 
@@ -17,10 +20,10 @@ export default {
   },
   methods: {
     fetch() {
-      let result = axios
+      axios
         .get("https://rickandmortyapi.com/api/character")
         .then(res => {
-          this.characters = res.data.result;
+          this.characters = res.data.results;
           console.log(res.data);
         })
         .catch(err => {
